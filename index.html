@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رزومه | جلال مصطفی‌نیا | Senior Frontend Developer</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --navy:#102a43;
+    --blue:#1976d2;
+    --cyan:#18a0ae;
+    --ink:#263746;
+    --muted:#64748b;
+    --line:#dbe5ee;
+    --soft:#f4f8fb;
+    --white:#fff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#e9eef3;color:var(--ink);
+    font-family:"Vazirmatn","IRANSans","Tahoma","Segoe UI",sans-serif;
+    line-height:1.8}
+  body{padding:28px}
+  a{color:inherit;text-decoration:none}
+  .resume{
+    width:210mm; min-height:297mm; margin:auto; background:#fff;
+    box-shadow:0 18px 55px rgba(16,42,67,.15); overflow:hidden;
+  }
+
+  .hero{
+    position:relative; color:#fff; padding:30px 38px 28px;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(24,160,174,.42), transparent 28%),
+      linear-gradient(135deg,#0c2238 0%,#123d63 58%,#0d7890 100%);
+  }
+  .hero:after{
+    content:""; position:absolute; left:-50px; bottom:-90px; width:260px;height:190px;
+    border-radius:50%; background:rgba(255,255,255,.055);
+  }
+  .hero-top{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:25px}
+  .name{font-size:31px;font-weight:900;letter-spacing:-.5px;margin:0 0 2px}
+  .role{font-size:16px;color:#b9f0f1;font-weight:700}
+  .contact{display:grid;gap:5px;min-width:285px;font-size:12px;color:#e7f1f7}
+  .contact span{display:flex;gap:8px;align-items:center;direction:ltr;justify-content:flex-start}
+  .contact .icon{width:21px;text-align:center;color:#7fe1e5}
+  .tags{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .tag{padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:999px;
+       background:rgba(255,255,255,.09);font-size:10.5px;font-weight:700}
+
+  .layout{display:grid;grid-template-columns:68% 32%;direction:ltr}
+  .main,.sidebar{direction:rtl}
+  .main{padding:25px 30px 35px 25px}
+  .sidebar{padding:25px 24px 35px 25px;background:var(--soft);border-left:1px solid var(--line)}
+
+  .section{margin-bottom:23px}
+  .section-title{
+    display:flex;align-items:center;gap:9px;color:var(--navy);
+    font-size:15px;font-weight:900;margin:0 0 10px;
+  }
+  .section-title:after{content:"";height:2px;background:linear-gradient(90deg,var(--blue),transparent);
+    flex:1;margin-right:5px}
+  .bullet-title{
+    width:25px;height:25px;border-radius:8px;background:#e1f1f5;color:#087b87;
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px;
+  }
+  .summary{font-size:11.5px;color:#405365;text-align:justify;margin:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .card{
+    border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;
+    break-inside:avoid;
+  }
+  .card h3{margin:0 0 5px;font-size:12.5px;color:var(--navy)}
+  .card p{margin:0;font-size:10.5px;color:#526577}
+  ul{margin:6px 0 0;padding-right:17px}
+  li{font-size:10.5px;margin:2px 0;color:#45596b}
+  .job{position:relative;padding-right:19px;margin-bottom:18px;break-inside:avoid}
+  .job:before{content:"";position:absolute;right:0;top:5px;width:9px;height:9px;
+    border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px #def3f4}
+  .job:after{content:"";position:absolute;right:4px;top:18px;width:1px;height:calc(100% + 2px);background:#cfe0e8}
+  .job:last-child:after{display:none}
+  .job-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .company{font-size:13.5px;font-weight:900;color:var(--navy)}
+  .position{font-size:10.5px;color:var(--blue);font-weight:800}
+  .date{font-size:10px;color:var(--muted);white-space:nowrap;font-weight:700}
+  .job-desc{font-size:10.5px;color:#536779;margin:3px 0 4px}
+  .skill-group{margin-bottom:15px}
+  .skill-label{font-size:10.5px;font-weight:900;color:var(--navy);margin-bottom:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px}
+  .chip{background:#fff;border:1px solid #d7e3ec;border-radius:7px;padding:3px 7px;
+        font-size:9.5px;color:#405568}
+  .chip.strong{background:#e4f3f8;border-color:#c8e7ef;color:#087684;font-weight:800}
+  .mini-card{padding:11px 12px;background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:9px}
+  .mini-card strong{display:block;color:var(--navy);font-size:10.5px;margin-bottom:2px}
+  .mini-card span{display:block;color:#607487;font-size:9.5px}
+  .metric{display:flex;align-items:center;gap:8px;margin:7px 0;color:#526779;font-size:9.7px}
+  .check{color:#0795a0;font-weight:900}
+  .footer{
+    padding:9px 30px;border-top:1px solid var(--line);font-size:8.5px;color:#8192a1;
+    display:flex;justify-content:space-between
+  }
+
+  @media print{
+    body{padding:0;background:#fff}
+    .resume{box-shadow:none;width:210mm;min-height:297mm}
+  }
+  @media(max-width:900px){
+    body{padding:0}
+    .resume{width:100%;box-shadow:none}
+    .layout{grid-template-columns:1fr}
+    .sidebar{border-left:0;border-top:1px solid var(--line)}
+    .hero-top{flex-direction:column}
+    .contact{min-width:0;width:100%}
+  }
+</style>
+</head>
+<body>
+<main class="resume">
+
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <h1 class="name">جلال مصطفی‌نیا</h1>
+        <div class="role">Senior Frontend Developer | React | Angular | JavaScript | TypeScript</div>
+      </div>
+      <div class="contact">
+        <span><b class="icon">✉</b> s.j.mostafania.ba@gmail.com</span>
+        <span><b class="icon">☎</b> 09368915297</span>
+        <span><b class="icon">in</b> linkedin.com/in/jalal-mostafania-6ab3a69a</span>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Frontend Architecture</span>
+      <span class="tag">Reusable Components</span>
+      <span class="tag">State Management</span>
+      <span class="tag">Performance</span>
+      <span class="tag">Enterprise Applications</span>
+      <span class="tag">RTL / Persian UI</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <section class="main">
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">◆</span> خلاصه حرفه‌ای</h2>
+        <p class="summary">
+          توسعه‌دهنده ارشد Frontend با بیش از <strong>۱۲ سال تجربه</strong> در توسعه نرم‌افزار و تجربه گسترده
+          در طراحی و پیاده‌سازی سامانه‌های سازمانی، به‌ویژه در حوزه بانکی و مالی. دارای تجربه عملی در
+          JavaScript، TypeScript، React، Angular، معماری Frontend، توسعه کامپوننت‌های قابل‌استفاده مجدد،
+          مدیریت State، بهینه‌سازی Performance و سامانه‌های داده‌محور در مقیاس بالا.
+          تجربه در طراحی معماری‌های قابل نگهداری، سیستم‌های UI مشترک و DataGridهای Server-side و همکاری
+          نزدیک با لایه‌های Backend، API و Database.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">⌘</span> معماری و مهندسی Frontend</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>معماری و ساختار</h3>
+            <ul>
+              <li>طراحی معماری کامپوننت‌های قابل استفاده مجدد</li>
+              <li>ساخت UI Component و DataGrid مشترک</li>
+              <li>تفکیک Presentation و Business Logic</li>
+              <li>طراحی لایه API / Data Access</li>
+              <li>Refactoring کدهای Legacy</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>مدیریت State</h3>
+            <ul>
+              <li>Redux و Zustand</li>
+              <li>React Query برای Server State</li>
+              <li>کاهش منطق تکراری UI</li>
+              <li>طراحی الگوهای قابل نگهداری</li>
+              <li>Code Review و رویکرد Production-oriented</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">⚡</span> Performance</h2>
+        <div class="card">
+          <div class="grid2">
+            <div>
+              <div class="metric"><span class="check">✓</span> بهینه‌سازی React Rendering</div>
+              <div class="metric"><span class="check">✓</span> React.memo / useMemo / useCallback</div>
+              <div class="metric"><span class="check">✓</span> Debounce برای Search و Filter</div>
+              <div class="metric"><span class="check">✓</span> Server-side Pagination / Filtering / Sorting</div>
+            </div>
+            <div>
+              <div class="metric"><span class="check">✓</span> مدیریت Datasetهای بزرگ</div>
+              <div class="metric"><span class="check">✓</span> جلوگیری از API Callهای غیرضروری</div>
+              <div class="metric"><span class="check">✓</span> بهینه‌سازی Data Fetching و State Updates</div>
+              <div class="metric"><span class="check">✓</span> تشخیص Bottleneckهای Backend / API</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">▣</span> سوابق حرفه‌ای</h2>
+
+        <article class="job">
+          <div class="job-head">
+            <div><span class="company">بانک تجارت</span> <span class="position">— Senior Full-Stack Developer</span></div>
+            <span class="date">۱۴۰۲ – تاکنون</span>
+          </div>
+          <div class="job-desc">تمرکز اصلی: توسعه و معماری Frontend در سامانه‌های سازمانی بانکی</div>
+          <ul>
+            <li>توسعه اپلیکیشن‌های مدرن با React، JavaScript و TypeScript</li>
+            <li>طراحی کامپوننت‌ها و الگوهای قابل استفاده مجدد</li>
+            <li>پیاده‌سازی DataGrid سازمانی با Pagination، Filtering و Sorting سمت سرور</li>
+            <li>استفاده از Redux، Zustand و React Query برای مدیریت State</li>
+            <li>توسعه رابط‌های RTL و فارسی و پیاده‌سازی RBAC</li>
+            <li>تحلیل و بهینه‌سازی Performance و Refactoring کدهای موجود</li>
+            <li>همکاری نزدیک با تیم Backend و APIهای .NET</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div><span class="company">بانک صادرات</span> <span class="position">— Frontend / Full-Stack Developer</span></div>
+            <span class="date">۱۴۰۰ – ۱۴۰۲</span>
+          </div>
+          <ul>
+            <li>توسعه سامانه‌های سازمانی با Angular</li>
+            <li>ساخت کامپوننت‌ها و Serviceهای قابل استفاده مجدد</li>
+            <li>کار با معماری Angular و Workflowهای کسب‌وکار</li>
+            <li>توسعه و مصرف ASP.NET Core REST API</li>
+            <li>کار با جریان‌های Async مبتنی بر RxJS</li>
+            <li>رفع خطا، Troubleshooting و بهینه‌سازی Performance</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div><span class="company">پردازش راهبردی سمنگان</span> <span class="position">— Software Developer</span></div>
+            <span class="date">۱۳۹۳ – ۱۴۰۰</span>
+          </div>
+          <ul>
+            <li>توسعه سامانه‌های مالی سازمانی با JavaScript و jQuery</li>
+            <li>توسعه ASP.NET Web Forms و رابط‌های داده‌محور</li>
+            <li>پیاده‌سازی Business Workflowها</li>
+            <li>کار با C# و SQL Server و نگهداری سامانه‌های سازمانی</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">★</span> پروژه‌های منتخب</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>Enterprise DataGrid System</h3>
+            <ul>
+              <li>معماری DataGrid قابل استفاده مجدد</li>
+              <li>Pagination / Filtering / Sorting سمت سرور</li>
+              <li>مناسب برای Datasetهای بزرگ</li>
+              <li>Toolbar، Filter، Action و Column Configuration</li>
+              <li>API-driven Data Loading</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Gift Card / Bon Card Platform</h3>
+            <ul>
+              <li>سامانه بانکی مبتنی بر React</li>
+              <li>Workflowهای پیچیده کسب‌وکار</li>
+              <li>رابط فارسی و RTL</li>
+              <li>کامپوننت‌های قابل استفاده مجدد</li>
+              <li>Role-based UI و Server-side Data</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>SSO / Identity Management</h3>
+            <ul>
+              <li>مدیریت User، Application و Role</li>
+              <li>Authentication و Authorization</li>
+              <li>RBAC-based UI</li>
+              <li>JWT / OAuth2 / OpenID Connect</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Enterprise Banking UI</h3>
+            <ul>
+              <li>فرم‌ها و صفحات داده‌محور</li>
+              <li>RTL، فارسی و Responsive UI</li>
+              <li>Integration با REST API</li>
+              <li>تمرکز بر Maintainability و Performance</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <aside class="sidebar">
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">⌘</span> مهارت‌های کلیدی</h2>
+
+        <div class="skill-group">
+          <div class="skill-label">Frontend</div>
+          <div class="chips">
+            <span class="chip strong">JavaScript</span><span class="chip strong">TypeScript</span>
+            <span class="chip strong">React 16/18</span><span class="chip strong">Angular</span>
+            <span class="chip">Redux</span><span class="chip">Zustand</span>
+            <span class="chip">React Query</span><span class="chip">RxJS</span>
+            <span class="chip">MUI</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+            <span class="chip">SASS / SCSS</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Architecture & UI</div>
+          <div class="chips">
+            <span class="chip strong">Frontend Architecture</span><span class="chip">Reusable Components</span>
+            <span class="chip">State Management</span><span class="chip">RTL</span>
+            <span class="chip">i18n</span><span class="chip">Accessibility</span>
+            <span class="chip">REST API</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Performance</div>
+          <div class="chips">
+            <span class="chip">Memoization</span><span class="chip">Debouncing</span>
+            <span class="chip">Server Pagination</span><span class="chip">Filtering</span>
+            <span class="chip">Sorting</span><span class="chip">Large Datasets</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">⌁</span> Backend / Engineering</h2>
+        <div class="chips">
+          <span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">.NET</span>
+          <span class="chip">SQL Server</span><span class="chip">EF Core</span><span class="chip">Git</span>
+          <span class="chip">GitLab</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">◆</span> نقاط قوت</h2>
+        <div class="mini-card"><strong>معماری Frontend</strong><span>طراحی ساختارهای قابل توسعه و نگهداری</span></div>
+        <div class="mini-card"><strong>Enterprise Development</strong><span>تجربه سامانه‌های بانکی و مالی پیچیده</span></div>
+        <div class="mini-card"><strong>Performance</strong><span>تمرکز بر Rendering، Data Fetching و API</span></div>
+        <div class="mini-card"><strong>Refactoring</strong><span>بهبود کدهای Legacy و کاهش پیچیدگی</span></div>
+        <div class="mini-card"><strong>Problem Solving</strong><span>تحلیل مسئله از UI تا API و Database</span></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">◈</span> تحصیلات</h2>
+        <div class="mini-card">
+          <strong>کارشناسی مهندسی نرم‌افزار</strong>
+          <span>Computer Software Engineering</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">文</span> زبان‌ها</h2>
+        <div class="mini-card"><strong>فارسی</strong><span>زبان مادری</span></div>
+        <div class="mini-card"><strong>انگلیسی</strong><span>متوسط — Intermediate</span></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="bullet-title">●</span> تکنولوژی‌ها</h2>
+        <div class="chips">
+          <span class="chip">React</span><span class="chip">Angular</span><span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span><span class="chip">Redux</span><span class="chip">Zustand</span>
+          <span class="chip">React Query</span><span class="chip">MUI</span><span class="chip">.NET</span>
+          <span class="chip">SQL Server</span><span class="chip">EF Core</span><span class="chip">GitLab</span>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <span>رزومه حرفه‌ای | Jalal Mostafania</span>
+    <span>Frontend Architecture · Enterprise Applications · Performance</span>
+  </footer>
+</main>
+</body>
+</html>
